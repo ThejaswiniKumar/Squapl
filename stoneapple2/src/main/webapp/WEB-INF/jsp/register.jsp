@@ -24,13 +24,22 @@ Password
 Confirm Password 
 <input type="password" name="confirmpassword" id="txtconfirmfeild"  placeholder="Confirm Password"/><br>
 </div>
-<div class=roles>
-<div class="drop-down content">
+<div>
 Role 
 <input type="text" name="roles" placeholder="Role" />
-<button class="dropbtn"></button><br>
 </div>
-
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Select</button>
+  <div id="myDropdown" class="dropdown-content">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <a href="#Admin">Admin</a>
+    <a href="#Developer">Developer</a>
+    <a href="#Tester">Tester</a>
+    <a href="#Contentwriter">Contentwriter</a>
+    <a href="#Photographer">Photographer</a>
+    <a href="#Supervisor">Supervisor</a>
+     </div>
+</div>
 <div>
 <input type="submit" value="Register">
 </div> 
@@ -45,6 +54,27 @@ function Validate(){
 		return false;
 		}
 	return true;
+}
+</script>
+
+<script>
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
 }
 </script>
 
